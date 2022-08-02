@@ -1,7 +1,7 @@
 <template>
     <div id="nav">
       <router-link :class="{ active: $route.name === 'HomeView' }" to="/">Home</router-link> 
-      <router-link :class="{ active: $route.name === 'CartView' }" to="/CartView">Cart</router-link>
+      <router-link :class="{ active: $route.name === 'CartView' }" to="/CartView">Cart <sup>{{ totalItemsInCart }}</sup></router-link>
     </div>
   <router-view/>
 </template>
@@ -10,6 +10,20 @@
   export default {
     mounted() { // Will fetch data that the component wil then render
       this.$store.commit('updateCartFromLocalStorage', this.product)
+    },
+    computed: {
+      totalItemsInCart() {
+        let products;
+        let total = 0;
+
+        products = this.$store.getters.cartItems; // Get all the items in the cart
+
+       products.forEach(product => {
+        total += product.quantity
+       })
+
+        return total
+      }
     }
   }
 </script>

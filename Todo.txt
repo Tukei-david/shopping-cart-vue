@@ -1,0 +1,3 @@
+Add Admin area to the Shopping Menu
+Add state Management to the Shopping Menu
+Include payments methods 
