@@ -13,6 +13,7 @@
         props: ['product'],
         computed: {
             description() {
+                // Cutting content to 150 chracters
                 return this.product.description.substring(0, 150)
             }
         }
@@ -40,7 +41,10 @@
             color: gray;
         }
 
-        button.view-product-button {
+        
+    }
+
+    button.view-product-button {
             padding: 10px;
             background-color: rgba(79, 160, 187);
             border: none;
@@ -50,7 +54,6 @@
             border-radius: 5px;
             cursor: pointer;
         }
-    }
 
     @media (min-width: 540px) {
         .card {

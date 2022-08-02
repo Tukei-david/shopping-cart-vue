@@ -6,6 +6,14 @@
   <router-view/>
 </template>
 
+<script>
+  export default {
+    mounted() { // Will fetch data that the component wil then render
+      this.$store.commit('updateCartFromLocalStorage', this.product)
+    }
+  }
+</script>
+
 <style lang="scss">
 #app {
   font-family: candara;

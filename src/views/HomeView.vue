@@ -3,6 +3,7 @@
     <ProductDescriptionDrawer
       :product="product"
       :active="active.product_drawer"
+      v-on:close-product-drawer="closeProductDrawer"
     />
 
     <div class="product-cards-container">
@@ -21,8 +22,8 @@
 <script>
 
 import items from '../data/items.js'
-import ProductSummaryCard from '../components/ProductSummaryCard.vue'
-import ProductDescriptionDrawer from '../components/ProductDescriptionDrawer.vue'
+import ProductSummaryCard from '../components/products/ProductSummaryCard.vue'
+import ProductDescriptionDrawer from '../components/products/ProductDescriptionDrawer.vue'
 
 export default {
   name: 'HomeView',
@@ -42,7 +43,11 @@ export default {
   methods: {
     viewProduct(product) {
       this.product = product;
+      this.active.product_drawer = true;
       console.log(this.product);
+    },
+    closeProductDrawer() {
+      this.active.product_drawer = false;
     }
   }
 }
